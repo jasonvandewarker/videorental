@@ -1,0 +1,42 @@
+.thumbnail {
+    cursor: pointer; 
+    cursor: hand;
+}
+
+.thumbnail>img,
+.thumbnail a>img {
+    margin-right: 1em !important;
+    margin-left: 1em !important;
+    height: 75px !important;
+    width: 75px !important;
+}
+
+.thumb-text {
+    font-size:8px; 
+    color:#03225C;
+}
+
+.page-header {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+h3 {
+    display: inline-block
+}
+
+img {
+    max-height: 400px;
+    max-width: 50px;
+}
+
+button {
+    border-radius: 0 !important;
+}
+
+.btn {
+    margin-top: 15px !important;
+}

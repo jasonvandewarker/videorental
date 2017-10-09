@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
+
+  <title>Movie Rental</title>
+</head>
+
+<body ng-controller="MovieController as vm">
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Welcome to Blockbuster Video!</h1>
+    </div>
+
+    <div class="row">
+      <a class="thumbnail col-xs-6 col-md-3" data-ng-click="vm.updateMovies(rentals)" ng-repeat="rentals in vm.movies | limitTo:16">
+        <div class="col-xs-3 col-md-3 image-container">
+          <img src="{{rentals.Image}}" style="height:75px; margin-left:-15px;" />
+        </div>
+
+        <div>
+          <h6>{{rentals.Title}}</h6>
+          <div class="thumb-text">Year: {{rentals.ReleaseDate| date:'yyyy' }}
+          </div>
+          <div class="thumb-text">Rating: {{rentals.Rating}}
+          </div>
+        </div>
+      </a>
+    </div>
+    <!-- end of top row -->
+
+    <div class="jumbotron">
+      <div class="row">
+        <h2 data-ng-hide="vm.selectedMovie">Please select a film to view more detail</h2>
+
+        <div class="col-xs-4 col-lg-4">
+          <img src="{{vm.selectedMovie.Image}}" class="img-responsive" />
+        </div>
+
+        <div class="col-xs-8 col-lg-6" data-ng-show="vm.selectedMovie">
+          <!-- <div ng-class="{ 'hidden': ! showDetails }"> -->
+          <h3>{{vm.selectedMovie.Title}}</h3>
+          <div><strong>Year:</strong> {{vm.selectedMovie.ReleaseDate | date:'longDate'}}
+          </div>
+
+          <div><strong>Starring Actors:</strong> {{vm.selectedMovie.Starring}}
+          </div>
+
+          <div><strong>Genre:</strong> {{vm.selectedMovie.Genre}}
+          </div>
+
+          <div><strong>Runtime:</strong> {{vm.selectedMovie.RunTime}} minutes
+          </div>
+
+          <div><strong>Rating:</strong> {{vm.selectedMovie.Rating}}
+          </div>
+
+          <p>
+            <h3>Rent it now for: $2.99</h3>
+            <button data-ng-click="vm.rent()" class="btn btn-lg btn-default pull-right">Rent Now
+                </button>
+          </p>
+        </div>
+      </div>
+      <!-- end of jumbotron right side column -->
+
+    </div>
+    <!-- end of jumbotron row -->
+  </div>
+  <!-- end of jumbotron -->
+
+  </div>
+  <!-- end of main container -->
+
+  <script src="js/angular.min.js"></script>
+
+</body>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="js/app.module.js"></script>
+<script src="js/movie.Controller.js"></script>
+
+</html>
